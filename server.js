@@ -18,7 +18,7 @@ app.use('/auth', authRoute);
 mongoose.connect(process.env.MONGO_URI)
 .then(()=> {
     console.log('Mongodb connected');
-    const port = process.env.PORT || 4000; // 4000 for local dev
+    const port = process.env.PORT || 8080; // 4000 for local dev
     app.listen(port, () => {
     console.log(`Server running on port ${port}`);
     });
