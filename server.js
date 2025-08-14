@@ -10,6 +10,9 @@ const app = express()
 app.use(cors())
 
 app.use(express.json())
+app.get('/', (req, res) => {
+    res.send('MongoDB connected ✅ — Server running on port 8080');
+  });
 
 app.use('/tasks',taskRoutes)
 app.use('/auth', authRoute);
@@ -18,7 +21,7 @@ app.use('/auth', authRoute);
 mongoose.connect(process.env.MONGO_URI)
 .then(()=> {
     console.log('Mongodb connected');
-    const port = process.env.PORT || 8080; // 4000 for local dev
+    const port = process.env.PORT || 8080; //  for local dev
     app.listen(port, () => {
     console.log(`Server running on port ${port}`);
     });
